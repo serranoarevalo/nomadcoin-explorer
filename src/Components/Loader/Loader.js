@@ -15,6 +15,10 @@ const animation = keyframes`
 
 const Text = styled.span`
   animation: ${animation} 1s linear infinite;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+  display: block;
 `;
 
 const Loader = ({ text }) => <Text>{text}</Text>;

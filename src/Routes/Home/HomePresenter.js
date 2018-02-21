@@ -12,12 +12,14 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       title={"Latest Blocks"}
       loaderText={"Getting blocks"}
       data={blocks}
+      headers={"Index, Hash, Difficulty, Amount, Timestamp"}
     />
     <Table
       isLoading={isLoading}
       title={"Latest Transactions"}
       loaderText={"Getting transactions"}
       data={txs}
+      headers={"Index, Hash, Difficulty, Amount, Timestamp"}
     />
   </Fragment>
 );
