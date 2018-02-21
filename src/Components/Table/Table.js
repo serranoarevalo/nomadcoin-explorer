@@ -59,7 +59,7 @@ const TableCell = styled.div`
   overflow: hidden;
 `;
 
-const Table = ({ title, isLoading, loaderText, data, headers }) => (
+const Table = ({ title, isLoading, loaderText, data, headers, selected }) => (
   <TableCard>
     <TableTitle>{title}</TableTitle>
     <TableContent>
@@ -76,15 +76,13 @@ const Table = ({ title, isLoading, loaderText, data, headers }) => (
             </TableRow>
           </TableHeader>
           <TableData>
-            {data.reverse().map(item => (
-              <TableRow>
-                <TableCell>{item.index}</TableCell>
-                <TableCell>{item.hash}</TableCell>
-                <TableCell>{item.difficulty}</TableCell>
-                <TableCell>{item.amount}</TableCell>
-                <TableCell>{item.timestamp}</TableCell>
-              </TableRow>
-            ))}
+            {data
+              .reverse()
+              .map((item, index) => (
+                <TableRow>
+                  {selected.map(key => <TableCell>{item[key]}</TableCell>)}
+                </TableRow>
+              ))}
           </TableData>
         </Fragment>
       )}
@@ -97,7 +95,8 @@ Table.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   loaderText: PropTypes.string.isRequired,
   headers: PropTypes.string.isRequired,
-  data: PropTypes.array
+  data: PropTypes.array,
+  selected: PropTypes.array.isRequired
 };
 
 export default Table;

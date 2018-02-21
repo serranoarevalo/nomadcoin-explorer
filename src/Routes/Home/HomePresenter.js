@@ -13,6 +13,7 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       loaderText={"Getting blocks"}
       data={blocks}
       headers={"Index, Hash, Difficulty, Amount, Timestamp"}
+      selected={["index", "hash", "difficulty", "amount", "timestamp"]}
     />
     <Table
       isLoading={isLoading}
@@ -20,6 +21,7 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       loaderText={"Getting transactions"}
       data={txs}
       headers={"Index, Hash, Difficulty, Amount, Timestamp"}
+      selected={["index", "hash", "difficulty", "amount", "timestamp"]}
     />
   </Fragment>
 );
