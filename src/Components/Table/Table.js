@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 
@@ -21,6 +22,7 @@ const TableTitle = styled.h2`
 
 const TableContent = styled.div`
   width: 100%;
+  min-height: 490px;
 `;
 
 const TableHeader = styled.header`
@@ -54,12 +56,34 @@ const TableRow = styled.div`
 
 const TableCell = styled.div`
   padding: 10px 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  line-height: 2;
+  &:not(:last-child) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 `;
 
-const Table = ({ title, isLoading, loaderText, data, headers, selected }) => (
+const TableLink = styled(Link)`
+  color: #2196f3;
+`;
+
+const makeSexyDate = seconds => {
+  const date = new Date(null);
+  date.setSeconds(seconds);
+  return date.toUTCString();
+};
+
+const Table = ({
+  title,
+  isLoading,
+  loaderText,
+  data,
+  headers,
+  selected,
+  linkPage,
+  linkParam
+}) => (
   <TableCard>
     <TableTitle>{title}</TableTitle>
     <TableContent>
@@ -76,13 +100,31 @@ const Table = ({ title, isLoading, loaderText, data, headers, selected }) => (
             </TableRow>
           </TableHeader>
           <TableData>
-            {data
-              .reverse()
-              .map((item, index) => (
-                <TableRow>
-                  {selected.map(key => <TableCell>{item[key]}</TableCell>)}
-                </TableRow>
-              ))}
+            {data.reverse().map((item, index) => (
+              <TableRow key={index}>
+                {selected.map((key, index) => {
+                  if (index > 1) {
+                    if (key === "timestamp") {
+                      return (
+                        <TableCell key={index}>
+                          {makeSexyDate(item[key])}
+                        </TableCell>
+                      );
+                    } else {
+                      return <TableCell key={index}>{item[key]}</TableCell>;
+                    }
+                  } else {
+                    return (
+                      <TableCell key={index}>
+                        <TableLink to={`${linkPage}/${item[linkParam]}`}>
+                          {item[key]}
+                        </TableLink>
+                      </TableCell>
+                    );
+                  }
+                })}
+              </TableRow>
+            ))}
           </TableData>
         </Fragment>
       )}
@@ -96,7 +138,9 @@ Table.propTypes = {
   loaderText: PropTypes.string.isRequired,
   headers: PropTypes.string.isRequired,
   data: PropTypes.array,
-  selected: PropTypes.array.isRequired
+  selected: PropTypes.array.isRequired,
+  linkPage: PropTypes.string.isRequired,
+  linkParam: PropTypes.string.isRequired
 };
 
 export default Table;

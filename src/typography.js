@@ -13,7 +13,8 @@ const typography = new Typography({
   ],
   headerFontFamily: ["Nunito", "Helvetica", "sans-serif"],
   bodyFontFamily: ["Open Sans", "Helvetica", "sans-serif"],
-  includeNormalize: false
+  includeNormalize: false,
+  baseFontSize: "14px"
 });
 
 export default typography.toString();

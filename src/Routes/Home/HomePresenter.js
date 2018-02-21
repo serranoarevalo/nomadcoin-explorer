@@ -12,16 +12,20 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       title={"Latest Blocks"}
       loaderText={"Getting blocks"}
       data={blocks}
-      headers={"Index, Hash, Difficulty, Amount, Timestamp"}
+      headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
       selected={["index", "hash", "difficulty", "amount", "timestamp"]}
+      linkPage={"block"}
+      linkParam={"hash"}
     />
     <Table
       isLoading={isLoading}
       title={"Latest Transactions"}
       loaderText={"Getting transactions"}
       data={txs}
-      headers={"Index, Hash, Difficulty, Amount, Timestamp"}
-      selected={["index", "hash", "difficulty", "amount", "timestamp"]}
+      headers={"Index, Transaction ID, Amount, Timestamp"}
+      selected={["index", "id", "amount", "timestamp"]}
+      linkPage={"transaction"}
+      linkParam={"id"}
     />
   </Fragment>
 );
