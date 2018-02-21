@@ -15,11 +15,23 @@ const baseStyles = () => injectGlobal`
   a{
     text-decoration:none;
   }
+  h1,h2{
+    margin:0!important;
+  }
 `;
 
 const AppContainer = styled.div`
   background-color: #fafafa;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+`;
+
+const Main = styled.main`
+  max-width: 1000px;
+  width: 100%;
 `;
 
 class App extends Component {
@@ -29,12 +41,14 @@ class App extends Component {
       <BrowserRouter>
         <AppContainer>
           <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/blocks" component={Blocks} />
-            <Route exact path="/transactions" component={Transactions} />
-            <Route exact path="/network-status" component={Status} />
-          </Switch>
+          <Main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/blocks" component={Blocks} />
+              <Route exact path="/transactions" component={Transactions} />
+              <Route exact path="/network-status" component={Status} />
+            </Switch>
+          </Main>
         </AppContainer>
       </BrowserRouter>
     );
