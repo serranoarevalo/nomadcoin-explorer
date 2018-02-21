@@ -1,19 +1,32 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import styled, { injectGlobal } from "styled-components";
+import typography from "./typography";
+import Header from "Header";
+import { BrowserRouter } from "react-router-dom";
+import reset from "styled-reset";
+
+const baseStyles = () => injectGlobal`
+  ${reset};
+  ${typography};
+  a{
+    text-decoration:none;
+  }
+`;
+
+const AppContainer = styled.div`
+  background-color: #fafafa;
+  min-height: 100vh;
+`;
 
 class App extends Component {
   render() {
+    baseStyles();
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <AppContainer>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </AppContainer>
     );
   }
 }
