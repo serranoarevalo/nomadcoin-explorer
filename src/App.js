@@ -8,12 +8,14 @@ import Blocks from "Routes/Blocks";
 import Home from "Routes/Home";
 import Transactions from "Routes/Transactions";
 import Block from "Routes/Block";
+import Transaction from "Routes/Transaction";
 
 const baseStyles = () => injectGlobal`
   ${reset};
   ${typography};
   a{
     text-decoration:none;
+    color:inherit;
   }
   h1,h2{
     margin:0!important;
@@ -47,6 +49,7 @@ class App extends Component {
               <Route exact path="/blocks" component={Blocks} />
               <Route exact path="/transactions" component={Transactions} />
               <Route path="/blocks/:index" component={Block} />
+              <Route path="/transactions/:id" component={Transaction} />
             </Switch>
           </Main>
         </AppContainer>

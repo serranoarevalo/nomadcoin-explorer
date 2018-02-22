@@ -2,26 +2,11 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { makeSexyDate } from "../../utils";
-import Table from "Components/Table";
 import Transaction from "Components/Transaction";
+import { KeyName, Title, Key } from "Components/Shared";
 
 const BlockContainer = styled.div`
   margin-top: 20px;
-`;
-
-const KeyName = styled.span`
-  color: #999;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 20px !important;
-`;
-
-const Key = styled.h3`
-  margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
-  }
 `;
 
 const Transactions = styled.div`
@@ -42,6 +27,10 @@ const Headers = styled.div`
   }
   > *:nth-child(2) {
     width: 10%;
+    color: inherit;
+  }
+  > *:last-child {
+    width: 5%;
   }
 `;
 
@@ -78,14 +67,15 @@ const BlockPresenter = ({ isLoading, block }) => (
           {block.data.length > 1 && (
             <Headers>
               <Header>From</Header>
-              <Header>Amount</Header>
+              <Header>Amount (NMD)</Header>
               <Header>To</Header>
               <Header>Timestamp</Header>
+              <Header>See detail</Header>
             </Headers>
           )}
           {block.data.map((tx, index) => {
             if (index === 0) {
-              return;
+              return null;
             } else {
               return (
                 <Transaction
@@ -94,6 +84,8 @@ const BlockPresenter = ({ isLoading, block }) => (
                   amount={tx.amount}
                   timestamp={tx.timestamp}
                   key={index}
+                  hasDetail={true}
+                  id={tx.id}
                 />
               );
             }

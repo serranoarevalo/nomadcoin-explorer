@@ -16,6 +16,9 @@ const Tx = styled.div`
     width: 10%;
     color: inherit;
   }
+  > *:last-child {
+    width: 5%;
+  }
 `;
 
 const Column = styled.div`
@@ -30,7 +33,7 @@ const SLink = styled(Link)`
   color: #2196f3;
 `;
 
-const Transaction = ({ from, to, amount, timestamp }) => (
+const Transaction = ({ from, to, amount, timestamp, id, hasDetail }) => (
   <Tx>
     <Column>
       <SLink to={`/addresses/${from}`}>{from}</SLink>
@@ -40,13 +43,25 @@ const Transaction = ({ from, to, amount, timestamp }) => (
       <SLink to={`/addresses/${to}`}>{to}</SLink>
     </Column>
     <Column>{makeSexyDate(timestamp)}</Column>
+    {hasDetail && (
+      <Column>
+        <Link to={`/transactions/${id}`}>
+          {
+            //eslint-disable-next-line
+          }🔎
+        </Link>
+      </Column>
+    )}
   </Tx>
 );
 
 Transaction.propTypes = {
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired
+  amount: PropTypes.number.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  hasDetail: PropTypes.bool.isRequired
 };
 
 export default Transaction;
