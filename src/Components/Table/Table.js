@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "Components/Loader";
+import { makeSexyDate } from "../../utils";
 
 const TableCard = styled.div`
   background-color: white;
@@ -67,12 +68,6 @@ const TableCell = styled.div`
 const TableLink = styled(Link)`
   color: #2196f3;
 `;
-
-const makeSexyDate = seconds => {
-  const date = new Date(null);
-  date.setSeconds(seconds);
-  return date.toUTCString();
-};
 
 const Table = ({
   title,
