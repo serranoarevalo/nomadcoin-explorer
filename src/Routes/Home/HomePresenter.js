@@ -21,7 +21,7 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       data={txs}
       headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
       selected={["inBlock", "id", "amount", "timestamp"]}
-      linkPages={["blocks", "transaction"]}
+      linkPages={["blocks", "transactions"]}
       linkParams={["inBlock", "id"]}
     />
   </Fragment>

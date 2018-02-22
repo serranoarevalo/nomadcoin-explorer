@@ -21,16 +21,20 @@ const TransactionPresenter = ({ tx, isLoading }) => (
       <Fragment>
         <Title>Transaction: {tx.id}</Title>
         <Title>
-          <KeyName>Amount:</KeyName> {tx.amount}
+          <KeyName>Amount:</KeyName> {tx.amount} NDM
         </Title>
         <Key>
           <KeyName>Timestamp:</KeyName> {makeSexyDate(tx.timestamp)}
         </Key>
         <Key>
-          <KeyName>From:</KeyName>{" "}
-          <SLink to={`/addresses/${tx.txOuts[1].address}`}>
-            {tx.txOuts[1].address}
-          </SLink>
+          <KeyName>From:</KeyName>
+          {tx.txOuts[1] !== undefined ? (
+            <SLink to={`/addresses/${tx.txOuts[1].address}`}>
+              {tx.txOuts[1].address}
+            </SLink>
+          ) : (
+            " Coinbase"
+          )}
         </Key>
         <Key>
           <KeyName>To:</KeyName>{" "}
