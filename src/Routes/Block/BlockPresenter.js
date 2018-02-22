@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Table from "Components/Table";
 import { makeSexyDate } from "../../utils";
+import Table from "Components/Table";
+import Transaction from "Components/Transaction";
 
 const BlockContainer = styled.div`
   margin-top: 20px;
@@ -22,12 +23,14 @@ const Key = styled.h3`
 
 const Transactions = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Transaction = styled.div`
-  width: 40%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 25px;
+  h3 {
+    margin-bottom: 10px;
+  }
 `;
 
 const BlockPresenter = ({ isLoading, block }) => (
@@ -36,6 +39,7 @@ const BlockPresenter = ({ isLoading, block }) => (
       <Title>Getting block</Title>
     ) : (
       <Fragment>
+        <Title>Block #{block.index}</Title>
         <Title>
           <KeyName>Hash:</KeyName> {block.hash}
         </Title>
@@ -49,7 +53,24 @@ const BlockPresenter = ({ isLoading, block }) => (
           <KeyName>Nonce:</KeyName> {block.nonce}
         </Key>
         <Transactions>
-          <Transaction />
+          <Key>
+            {block.data.length > 1
+              ? "Transactions"
+              : "No transactions on this block"}
+          </Key>
+          {block.data.map((tx, index) => {
+            if (index === 0) {
+              return;
+            } else {
+              return (
+                <Transaction
+                  from={tx.txOuts[1].address}
+                  to={tx.txOuts[0].address}
+                  amount={tx.amount}
+                />
+              );
+            }
+          })}
         </Transactions>
       </Fragment>
     )}
