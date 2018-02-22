@@ -22,8 +22,8 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       title={"Latest Transactions"}
       loaderText={"Getting transactions"}
       data={txs}
-      headers={"Index, Transaction ID, Amount, Timestamp"}
-      selected={["index", "id", "amount", "timestamp"]}
+      headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
+      selected={["inBlock", "id", "amount", "timestamp"]}
       linkPage={"transaction"}
       linkParam={"id"}
     />
