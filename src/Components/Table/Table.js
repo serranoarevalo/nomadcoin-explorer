@@ -81,8 +81,8 @@ const Table = ({
   data,
   headers,
   selected,
-  linkPage,
-  linkParam
+  linkPages,
+  linkParams
 }) => (
   <TableCard>
     <TableTitle>{title}</TableTitle>
@@ -116,7 +116,9 @@ const Table = ({
                   } else {
                     return (
                       <TableCell key={index}>
-                        <TableLink to={`${linkPage}/${item[linkParam]}`}>
+                        <TableLink
+                          to={`${linkPages[index]}/${item[linkParams[index]]}`}
+                        >
                           {item[key]}
                         </TableLink>
                       </TableCell>
@@ -139,8 +141,8 @@ Table.propTypes = {
   headers: PropTypes.string.isRequired,
   data: PropTypes.array,
   selected: PropTypes.array.isRequired,
-  linkPage: PropTypes.string.isRequired,
-  linkParam: PropTypes.string.isRequired
+  linkPages: PropTypes.array.isRequired,
+  linkParams: PropTypes.array.isRequired
 };
 
 export default Table;

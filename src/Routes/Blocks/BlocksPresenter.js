@@ -22,8 +22,8 @@ const BlocksPresenter = ({
       data={blocks}
       headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
       selected={["index", "hash", "difficulty", "amount", "timestamp"]}
-      linkPage={"blocks"}
-      linkParam={"hash"}
+      linkPages={["blocks", "blocks"]}
+      linkParams={["index", "index"]}
     />
     <Pagination
       totalPages={totalPages}

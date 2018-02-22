@@ -46,7 +46,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/blocks" component={Blocks} />
               <Route exact path="/transactions" component={Transactions} />
-              <Route path="/blocks/:hash" component={Block} />
+              <Route path="/blocks/:index" component={Block} />
             </Switch>
           </Main>
         </AppContainer>

@@ -71,7 +71,7 @@ const Header = props => {
               <Link to="/blocks">
                 <SLink
                   to="/blocks"
-                  isActive={window.location.pathname === "/blocks"}
+                  isActive={window.location.pathname.startsWith("/blocks")}
                 >
                   Blocks
                 </SLink>
@@ -79,7 +79,11 @@ const Header = props => {
             </ListItem>
             <ListItem>
               <Link to="/transactions">
-                <SLink isActive={window.location.pathname === "/transactions"}>
+                <SLink
+                  isActive={window.location.pathname.startsWith(
+                    "/transactions"
+                  )}
+                >
                   Transactions
                 </SLink>
               </Link>

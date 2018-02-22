@@ -22,8 +22,8 @@ const TransactionsPresenter = ({
       data={txs}
       headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
       selected={["inBlock", "id", "amount", "timestamp"]}
-      linkPage={"transaction"}
-      linkParam={"id"}
+      linkPages={["blocks", "transactions"]}
+      linkParams={["inBlock", "id"]}
     />
     <Pagination
       totalPages={totalPages}

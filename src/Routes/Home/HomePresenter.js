@@ -11,8 +11,8 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       data={blocks}
       headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
       selected={["index", "hash", "difficulty", "amount", "timestamp"]}
-      linkPage={"blocks"}
-      linkParam={"hash"}
+      linkPages={["blocks", "blocks"]}
+      linkParams={["index", "index"]}
     />
     <Table
       isLoading={isLoading}
@@ -21,8 +21,8 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       data={txs}
       headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
       selected={["inBlock", "id", "amount", "timestamp"]}
-      linkPage={"transaction"}
-      linkParam={"id"}
+      linkPages={["blocks", "transaction"]}
+      linkParams={["inBlock", "id"]}
     />
   </Fragment>
 );

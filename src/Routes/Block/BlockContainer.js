@@ -8,14 +8,14 @@ class BlockContainer extends Component {
     isLoading: true
   };
   componentDidMount() {
-    const { match: { params: { hash } } } = this.props;
-    this._getBlock(hash);
+    const { match: { params: { index } } } = this.props;
+    this._getBlock(index);
   }
   render() {
     return <BlockPresenter {...this.state} />;
   }
-  _getBlock = async hash => {
-    const request = await axios.get(`${HTTP_URL}/blocks/${hash}`);
+  _getBlock = async index => {
+    const request = await axios.get(`${HTTP_URL}/blocks/${index}`);
     const block = request.data;
     this.setState({
       block,
