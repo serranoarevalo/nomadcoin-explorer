@@ -9,6 +9,7 @@ import Home from "Routes/Home";
 import Transactions from "Routes/Transactions";
 import Block from "Routes/Block";
 import Transaction from "Routes/Transaction";
+import Address from "Routes/Address";
 
 const baseStyles = () => injectGlobal`
   ${reset};
@@ -50,6 +51,7 @@ class App extends Component {
               <Route exact path="/transactions" component={Transactions} />
               <Route path="/blocks/:index" component={Block} />
               <Route path="/transactions/:id" component={Transaction} />
+              <Route path="/addresses/:address" component={Address} />
             </Switch>
           </Main>
         </AppContainer>
