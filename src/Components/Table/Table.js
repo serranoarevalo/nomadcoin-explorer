@@ -100,7 +100,7 @@ const Table = ({
             </TableRow>
           </TableHeader>
           <TableData>
-            {data.reverse().map((item, index) => (
+            {data.map((item, index) => (
               <TableRow key={index}>
                 {selected.map((key, index) => {
                   if (index > 1) {
