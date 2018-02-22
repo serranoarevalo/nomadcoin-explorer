@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import Table from "Components/Table";
 import Pagination from "Components/Pagination";
 
-const BlocksPresenter = ({
+const TransactionsPresenter = ({
   isLoading,
-  blocks,
+  txs,
   pages,
   currentPage,
   perPage,
@@ -17,13 +17,13 @@ const BlocksPresenter = ({
   <Fragment>
     <Table
       isLoading={isLoading}
-      title={`All Blocks (${total || 0})`}
-      loaderText={"Getting blocks"}
-      data={blocks}
-      headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
-      selected={["index", "hash", "difficulty", "amount", "timestamp"]}
-      linkPage={"block"}
-      linkParam={"hash"}
+      title={`All Transactions (${total || 0})`}
+      loaderText={"Getting transactions"}
+      data={txs}
+      headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
+      selected={["inBlock", "id", "amount", "timestamp"]}
+      linkPage={"transaction"}
+      linkParam={"id"}
     />
     <Pagination
       totalPages={totalPages}
@@ -34,9 +34,9 @@ const BlocksPresenter = ({
   </Fragment>
 );
 
-BlocksPresenter.propTypes = {
+TransactionsPresenter.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  blocks: PropTypes.array,
+  tx: PropTypes.array,
   goToNextPage: PropTypes.func.isRequired,
   goToPreviousPage: PropTypes.func.isRequired,
   currentPage: PropTypes.number,
@@ -44,4 +44,4 @@ BlocksPresenter.propTypes = {
   totalPages: PropTypes.number
 };
 
-export default BlocksPresenter;
+export default TransactionsPresenter;

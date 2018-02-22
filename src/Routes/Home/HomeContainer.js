@@ -9,7 +9,7 @@ class HomeContainer extends Component {
   };
   componentDidMount = async () => {
     const blockReq = await axios.get(`${HTTP_URL}/blocks/latest`);
-    const txReq = await axios.get(`${HTTP_URL}/transactions`);
+    const txReq = await axios.get(`${HTTP_URL}/transactions/latest`);
     const blocks = blockReq.data;
     const txs = txReq.data;
     this.setState({

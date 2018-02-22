@@ -1,2 +1,2 @@
-import Transactions from "./Transactions";
-export default Transactions;
+import TransactionsContainer from "./TransactionsContainer";
+export default TransactionsContainer;
