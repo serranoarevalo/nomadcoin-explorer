@@ -44,7 +44,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin-bottom: 0;
-  margin-right: 50px;
+  margin-left: 50px;
 `;
 
 const SLink = styled.span`
@@ -81,15 +81,6 @@ const Header = props => {
               <Link to="/transactions">
                 <SLink isActive={window.location.pathname === "/transactions"}>
                   Transactions
-                </SLink>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link to="/network-status">
-                <SLink
-                  isActive={window.location.pathname === "/network-status"}
-                >
-                  Network Status
                 </SLink>
               </Link>
             </ListItem>

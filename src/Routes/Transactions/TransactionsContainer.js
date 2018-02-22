@@ -47,7 +47,7 @@ class TransactionsContainer extends Component {
     }
   };
   _goToPreviousPage = () => {
-    const { totalPages, currentPage } = this.state;
+    const { currentPage } = this.state;
     if (currentPage !== 1) {
       this._scrollUp();
       this.setState(prevState => {

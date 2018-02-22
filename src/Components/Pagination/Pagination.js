@@ -39,11 +39,28 @@ const Pagination = ({
 }) => (
   <PaginationContainer>
     <PaginationWrapper>
-      <Button onClick={goToPreviousPage}>👈🏻</Button>
+      <Button role="img" aria-label={"Previos"} onClick={goToPreviousPage}>
+        {
+          //eslint-disable-next-line
+        }
+        👈🏻
+      </Button>
       <PageInfo>{`${currentPage}/${totalPages}`}</PageInfo>
-      <Button onClick={goToNextPage}>👉🏻</Button>
+      <Button role="img" aria-label={"Next"} onClick={goToNextPage}>
+        {
+          //eslint-disable-next-line
+        }
+        👉🏻
+      </Button>
     </PaginationWrapper>
   </PaginationContainer>
 );
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  goToNextPage: PropTypes.func.isRequired,
+  goToPreviousPage: PropTypes.func.isRequired
+};
 
 export default Pagination;

@@ -11,7 +11,7 @@ const HomePresenter = ({ isLoading, blocks, txs }) => (
       data={blocks}
       headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
       selected={["index", "hash", "difficulty", "amount", "timestamp"]}
-      linkPage={"block"}
+      linkPage={"blocks"}
       linkParam={"hash"}
     />
     <Table

@@ -6,8 +6,8 @@ import typography from "./typography";
 import Header from "Components/Header";
 import Blocks from "Routes/Blocks";
 import Home from "Routes/Home";
-import Status from "Routes/Status";
 import Transactions from "Routes/Transactions";
+import Block from "Routes/Block";
 
 const baseStyles = () => injectGlobal`
   ${reset};
@@ -46,7 +46,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/blocks" component={Blocks} />
               <Route exact path="/transactions" component={Transactions} />
-              <Route exact path="/network-status" component={Status} />
+              <Route path="/blocks/:hash" component={Block} />
             </Switch>
           </Main>
         </AppContainer>
