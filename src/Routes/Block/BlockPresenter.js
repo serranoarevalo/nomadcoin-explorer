@@ -19,6 +19,9 @@ const Title = styled.h2`
 
 const Key = styled.h3`
   margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const Transactions = styled.div`
@@ -28,9 +31,23 @@ const Transactions = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-top: 25px;
-  h3 {
-    margin-bottom: 10px;
+`;
+
+const Headers = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  > * {
+    width: 40%;
   }
+  > *:nth-child(2) {
+    width: 10%;
+  }
+`;
+
+const Header = styled.span`
+  font-weight: 600;
+  text-align: center;
 `;
 
 const BlockPresenter = ({ isLoading, block }) => (
@@ -58,6 +75,14 @@ const BlockPresenter = ({ isLoading, block }) => (
               ? "Transactions"
               : "No transactions on this block"}
           </Key>
+          {block.data.length > 1 && (
+            <Headers>
+              <Header>From</Header>
+              <Header>Amount</Header>
+              <Header>To</Header>
+              <Header>Timestamp</Header>
+            </Headers>
+          )}
           {block.data.map((tx, index) => {
             if (index === 0) {
               return;
@@ -67,6 +92,8 @@ const BlockPresenter = ({ isLoading, block }) => (
                   from={tx.txOuts[1].address}
                   to={tx.txOuts[0].address}
                   amount={tx.amount}
+                  timestamp={tx.timestamp}
+                  key={index}
                 />
               );
             }
