@@ -5,7 +5,7 @@ import Pagination from "Components/Pagination";
 
 const TransactionsPresenter = ({
   isLoading,
-  txs,
+  txs = [],
   pages,
   currentPage,
   perPage,
@@ -19,7 +19,7 @@ const TransactionsPresenter = ({
       isLoading={isLoading}
       title={`All Transactions (${total || 0})`}
       loaderText={"Getting transactions"}
-      data={txs}
+      data={txs.slice(0, 15)}
       headers={"Amount (NMD), Transaction ID, Timestamp"}
       selected={["amount", "id", "timestamp"]}
       linkPages={["transactions", "transactions"]}

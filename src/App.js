@@ -35,6 +35,9 @@ const AppContainer = styled.div`
 const Main = styled.main`
   max-width: 1000px;
   width: 100%;
+  @media screen and (max-width: 600px) {
+    width: 95%;
+  }
 `;
 
 class App extends Component {

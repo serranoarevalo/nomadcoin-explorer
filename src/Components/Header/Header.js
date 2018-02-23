@@ -33,6 +33,11 @@ const Nav = styled.nav`
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 35px;
+  }
 `;
 
 const List = styled.ul`
@@ -45,6 +50,9 @@ const List = styled.ul`
 const ListItem = styled.li`
   margin-bottom: 0;
   margin-left: 50px;
+  &:first-child {
+    margin: 0;
+  }
 `;
 
 const SLink = styled.span`
