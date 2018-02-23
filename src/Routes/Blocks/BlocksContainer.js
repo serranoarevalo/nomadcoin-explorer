@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { HTTP_URL, WS_URL } from "../../constants";
+import { parseMessage } from "../../utils";
 import BlocksPresenter from "./BlocksPresenter";
 
 class BlocksContainer extends Component {
@@ -12,7 +13,15 @@ class BlocksContainer extends Component {
     this._getBlocks();
     const socket = new WebSocket(WS_URL);
     socket.addEventListener("message", message => {
-      console.log(message);
+      const parsedMessage = parseMessage(message);
+      if (parsedMessage !== null) {
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            blocks: [...parsedMessage, ...prevState.blocks]
+          };
+        });
+      }
     });
   };
   render() {

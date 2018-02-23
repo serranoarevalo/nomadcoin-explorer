@@ -5,7 +5,7 @@ import Pagination from "Components/Pagination";
 
 const BlocksPresenter = ({
   isLoading,
-  blocks,
+  blocks = [],
   pages,
   currentPage,
   perPage,
@@ -19,7 +19,7 @@ const BlocksPresenter = ({
       isLoading={isLoading}
       title={`All Blocks (${total || 0})`}
       loaderText={"Getting blocks"}
-      data={blocks}
+      data={blocks.slice(0, 15)}
       headers={"Index, Hash, Difficulty, Amount (NMD), Timestamp"}
       selected={["index", "hash", "difficulty", "amount", "timestamp"]}
       linkPages={["blocks", "blocks"]}

@@ -58,8 +58,7 @@ Transaction.propTypes = {
   to: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
   timestamp: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
-  hasDetail: PropTypes.bool.isRequired
+  id: PropTypes.string.isRequired
 };
 
 export default Transaction;

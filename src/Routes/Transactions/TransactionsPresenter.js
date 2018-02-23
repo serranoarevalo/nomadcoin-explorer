@@ -20,10 +20,10 @@ const TransactionsPresenter = ({
       title={`All Transactions (${total || 0})`}
       loaderText={"Getting transactions"}
       data={txs}
-      headers={"In Block, Transaction ID, Amount (NMD), Timestamp"}
-      selected={["inBlock", "id", "amount", "timestamp"]}
-      linkPages={["blocks", "transactions"]}
-      linkParams={["inBlock", "id"]}
+      headers={"Amount (NMD), Transaction ID, Timestamp"}
+      selected={["amount", "id", "timestamp"]}
+      linkPages={["transactions", "transactions"]}
+      linkParams={["id", "id"]}
     />
     <Pagination
       totalPages={totalPages}
