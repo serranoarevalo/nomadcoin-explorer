@@ -33,7 +33,7 @@ const SLink = styled(Link)`
   color: #2196f3;
 `;
 
-const Transaction = ({ from, to, amount, timestamp, id, hasDetail }) => (
+const Transaction = ({ from, to, amount, timestamp, id }) => (
   <Tx>
     <Column>
       <SLink to={`/addresses/${from}`}>{from}</SLink>
@@ -43,15 +43,13 @@ const Transaction = ({ from, to, amount, timestamp, id, hasDetail }) => (
       <SLink to={`/addresses/${to}`}>{to}</SLink>
     </Column>
     <Column>{makeSexyDate(timestamp)}</Column>
-    {hasDetail && (
-      <Column>
-        <Link to={`/transactions/${id}`}>
-          {
-            //eslint-disable-next-line
-          }🔎
-        </Link>
-      </Column>
-    )}
+    <Column>
+      <Link to={`/transactions/${id}`}>
+        {
+          //eslint-disable-next-line
+        }🔎
+      </Link>
+    </Column>
   </Tx>
 );
 

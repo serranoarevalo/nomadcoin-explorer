@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { HTTP_URL } from "../../constants";
+import { HTTP_URL, WS_URL } from "../../constants";
 import BlocksPresenter from "./BlocksPresenter";
 
 class BlocksContainer extends Component {
@@ -10,6 +10,10 @@ class BlocksContainer extends Component {
   };
   componentDidMount = () => {
     this._getBlocks();
+    const socket = new WebSocket(WS_URL);
+    socket.addEventListener("message", message => {
+      console.log(message);
+    });
   };
   render() {
     return (

@@ -98,7 +98,7 @@ const Table = ({
             {data.map((item, index) => (
               <TableRow key={index}>
                 {selected.map((key, index) => {
-                  if (index > 1) {
+                  if (index > linkPages.length - 1) {
                     if (key === "timestamp") {
                       return (
                         <TableCell key={index}>

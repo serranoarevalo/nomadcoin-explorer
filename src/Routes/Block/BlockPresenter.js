@@ -84,7 +84,6 @@ const BlockPresenter = ({ isLoading, block }) => (
                   amount={tx.amount}
                   timestamp={tx.timestamp}
                   key={index}
-                  hasDetail={true}
                   id={tx.id}
                 />
               );
