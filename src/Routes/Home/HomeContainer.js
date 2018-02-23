@@ -17,7 +17,8 @@ class HomeContainer extends Component {
         this.setState(prevState => {
           return {
             ...prevState,
-            blocks: [...parsedMessage, ...prevState.blocks]
+            blocks: [...parsedMessage, ...prevState.blocks],
+            txs: [...parsedMessage[0].data, ...prevState.txs]
           };
         });
       }

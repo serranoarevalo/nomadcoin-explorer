@@ -18,7 +18,7 @@ const HomePresenter = ({ isLoading, blocks = [], txs = [] }) => (
       isLoading={isLoading}
       title={"Latest Transactions"}
       loaderText={"Getting transactions"}
-      data={txs}
+      data={txs.slice(0, 5)}
       headers={"Amount (NMD), Transaction ID, Timestamp"}
       selected={["amount", "id", "timestamp"]}
       linkPages={["transactions", "transactions"]}
