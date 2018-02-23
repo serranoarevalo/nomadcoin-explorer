@@ -59,36 +59,26 @@ const BlockPresenter = ({ isLoading, block }) => (
           <KeyName>Nonce:</KeyName> {block.nonce}
         </Key>
         <Transactions>
-          <Key>
-            {block.data.length > 1
-              ? "Transactions"
-              : "No transactions on this block"}
-          </Key>
-          {block.data.length > 1 && (
-            <Headers>
-              <Header>From</Header>
-              <Header>Amount (NMD)</Header>
-              <Header>To</Header>
-              <Header>Timestamp</Header>
-              <Header>See detail</Header>
-            </Headers>
-          )}
-          {block.data.map((tx, index) => {
-            if (index === 0) {
-              return null;
-            } else {
-              return (
-                <Transaction
-                  from={tx.txOuts[1].address}
-                  to={tx.txOuts[0].address}
-                  amount={tx.amount}
-                  timestamp={tx.timestamp}
-                  key={index}
-                  id={tx.id}
-                />
-              );
-            }
-          })}
+          <Key>Transactions</Key>
+
+          <Headers>
+            <Header>From</Header>
+            <Header>Amount (NMD)</Header>
+            <Header>To</Header>
+            <Header>Timestamp</Header>
+            <Header>See detail</Header>
+          </Headers>
+
+          {block.data.map((tx, index) => (
+            <Transaction
+              from={tx.from}
+              to={tx.to}
+              amount={tx.amount}
+              timestamp={tx.timestamp}
+              key={index}
+              id={tx.id}
+            />
+          ))}
         </Transactions>
       </Fragment>
     )}

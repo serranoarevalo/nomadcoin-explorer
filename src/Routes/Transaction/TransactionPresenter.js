@@ -28,19 +28,11 @@ const TransactionPresenter = ({ tx, isLoading }) => (
         </Key>
         <Key>
           <KeyName>From: </KeyName>
-          {tx.txOuts[1] !== undefined ? (
-            <SLink to={`/addresses/${tx.txOuts[1].address}`}>
-              {tx.txOuts[1].address}
-            </SLink>
-          ) : (
-            " Coinbase"
-          )}
+          <SLink to={`/addresses/${tx.from}`}>{tx.from}</SLink>
         </Key>
         <Key>
-          <KeyName>To: </KeyName>{" "}
-          <SLink to={`/addresses/${tx.txOuts[0].address}`}>
-            {tx.txOuts[0].address}
-          </SLink>
+          <KeyName>To: </KeyName>
+          <SLink to={`/addresses/${tx.to}`}>{tx.to}</SLink>
         </Key>
       </Fragment>
     )}
