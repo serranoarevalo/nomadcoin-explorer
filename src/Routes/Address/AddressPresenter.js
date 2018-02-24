@@ -25,9 +25,9 @@ const AddressPresenter = ({ isLoading, address, balance }) => (
 );
 
 AddressPresenter.propTypes = {
-  isLoaded: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   address: PropTypes.string.isRequired,
-  balance: PropTypes.number.isRequired
+  balance: PropTypes.number
 };
 
 export default AddressPresenter;
