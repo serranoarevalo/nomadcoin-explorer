@@ -49,12 +49,33 @@ class App extends Component {
           <Header />
           <Main>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/blocks" component={Blocks} />
-              <Route exact path="/transactions" component={Transactions} />
-              <Route path="/blocks/:index" component={Block} />
-              <Route path="/transactions/:id" component={Transaction} />
-              <Route path="/addresses/:address" component={Address} />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/`}
+                component={Home}
+              />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/blocks`}
+                component={Blocks}
+              />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/transactions`}
+                component={Transactions}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/blocks/:index`}
+                component={Block}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/transactions/:id`}
+                component={Transaction}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/addresses/:address`}
+                component={Address}
+              />
             </Switch>
           </Main>
         </AppContainer>

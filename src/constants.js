@@ -1,2 +1,2 @@
-export const HTTP_URL = "http://localhost:64980";
-export const WS_URL = "ws://localhost:64981";
+export const HTTP_URL = "https://nomadcoin.now.sh";
+export const WS_URL = "ws://nomadcoin.now.sh";
