@@ -67,7 +67,7 @@ const Header = props => {
     <HeaderContainer>
       <HeaderWrapper>
         <Title>
-          <TitleLink to="/">Nomad Coin Explorer</TitleLink>
+          <TitleLink to="/">Nomadcoin Explorer</TitleLink>
         </Title>
         <Nav>
           <List>

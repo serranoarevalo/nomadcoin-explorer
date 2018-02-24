@@ -13,7 +13,7 @@ class HomeContainer extends Component {
     const socket = new WebSocket(WS_URL);
     socket.addEventListener("message", message => {
       const parsedMessage = parseMessage(message);
-      if (parsedMessage !== null) {
+      if (parsedMessage !== null && parsedMessage !== undefined) {
         this.setState(prevState => {
           return {
             ...prevState,

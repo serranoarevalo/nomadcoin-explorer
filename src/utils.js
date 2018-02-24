@@ -13,12 +13,16 @@ export const stringToJSON = string => {
 };
 
 export const parseMessage = message => {
-  const { data } = message;
-  const parsedMessage = stringToJSON(data);
-  const { type } = parsedMessage;
-  if (type === "BLOCKCHAIN_RESPONSE") {
-    return parsedMessage.data;
-  } else {
-    return null;
+  if (typeof message.data === "string") {
+    const { data } = message;
+    const parsedMessage = stringToJSON(data);
+    if (parsedMessage !== null) {
+      const { type } = parsedMessage;
+      if (type === "BLOCKCHAIN_RESPONSE") {
+        return parsedMessage.data;
+      } else {
+        return null;
+      }
+    }
   }
 };
