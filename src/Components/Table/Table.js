@@ -11,6 +11,7 @@ const TableCard = styled.div`
   width: 100%;
   min-height: 50vh;
   margin-bottom: 50px;
+  box-shadow: ${props => props.theme.boxShadow};
   &:last-child {
     margin-bottom: 0;
   }

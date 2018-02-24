@@ -15,6 +15,7 @@ const Transactions = styled.div`
   border-radius: 10px;
   padding: 20px;
   margin-top: 25px;
+  box-shadow: ${props => props.theme.boxShadow};
 `;
 
 const Headers = styled.div`
