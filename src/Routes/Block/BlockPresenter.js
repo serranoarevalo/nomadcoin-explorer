@@ -12,13 +12,13 @@ const BlockContainer = styled.div`
 const Transactions = styled.div`
   width: 100%;
   background-color: white;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   padding: 20px;
   margin-top: 25px;
 `;
 
 const Headers = styled.div`
+  margin-top: 60px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -37,6 +37,7 @@ const Headers = styled.div`
 const Header = styled.span`
   font-weight: 600;
   text-align: center;
+  color: ${props => props.theme.titleColor}!important;
 `;
 
 const BlockPresenter = ({ isLoading, block }) => (

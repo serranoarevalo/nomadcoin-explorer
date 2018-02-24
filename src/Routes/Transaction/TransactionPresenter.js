@@ -19,7 +19,9 @@ const TransactionPresenter = ({ tx, isLoading }) => (
       <Title>Getting Transaction</Title>
     ) : (
       <Fragment>
-        <Title>Transaction: {tx.id}</Title>
+        <Title>
+          <KeyName>Transaction:</KeyName> {tx.id}
+        </Title>
         <Title>
           <KeyName>Amount: </KeyName> {tx.amount} NDM
         </Title>

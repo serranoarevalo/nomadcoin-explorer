@@ -13,7 +13,9 @@ const AddressPresenter = ({ isLoading, address, balance }) => (
       <Title>Getting Balance</Title>
     ) : (
       <Fragment>
-        <Title>Address: {address}</Title>
+        <Title>
+          <KeyName>Address:</KeyName> {address}
+        </Title>
         <Title>
           <KeyName>Balance: </KeyName> {balance} NMD
         </Title>

@@ -24,7 +24,7 @@ const baseStyles = () => injectGlobal`
 `;
 
 const AppContainer = styled.div`
-  background-color: #fafafa;
+  background-color: #f2f6fa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

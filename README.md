@@ -9,4 +9,3 @@ Features:
 * See all transactions
 * Inspect individual transactions
 * Explore wallets
-* Add peers to the master node

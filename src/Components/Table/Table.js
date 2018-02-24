@@ -7,8 +7,7 @@ import { makeSexyDate } from "../../utils";
 
 const TableCard = styled.div`
   background-color: white;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   width: 100%;
   min-height: 50vh;
   margin-bottom: 50px;
@@ -19,6 +18,7 @@ const TableCard = styled.div`
 
 const TableTitle = styled.h2`
   padding: 20px;
+  color: ${props => props.theme.titleColor};
 `;
 
 const TableContent = styled.div`
@@ -34,6 +34,7 @@ const TableHeader = styled.header`
 const HeaderItem = styled.span`
   font-weight: 600;
   color: #333333;
+  color: ${props => props.theme.titleColor};
 `;
 
 const TableData = styled.div`

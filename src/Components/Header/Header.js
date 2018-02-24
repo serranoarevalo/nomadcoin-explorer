@@ -8,6 +8,7 @@ const TitleLink = styled(Link)`
 
 const Title = styled.h1`
   margin: 0;
+  color: ${props => props.theme.titleColor};
 `;
 
 const HeaderContainer = styled.header`

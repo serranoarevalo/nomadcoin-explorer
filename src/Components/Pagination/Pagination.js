@@ -32,8 +32,8 @@ const PageInfo = styled.span`
 `;
 
 const Pagination = ({
-  currentPage,
-  totalPages,
+  currentPage = 0,
+  totalPages = 0,
   goToNextPage,
   goToPreviousPage
 }) => (
