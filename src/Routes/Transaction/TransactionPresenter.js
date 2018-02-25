@@ -30,11 +30,15 @@ const TransactionPresenter = ({ tx, isLoading }) => (
         </Key>
         <Key>
           <KeyName>From: </KeyName>
-          <SLink to={`/addresses/${tx.from}`}>{tx.from}</SLink>
+          <SLink to={`${process.env.PUBLIC_URL}/addresses/${tx.from}`}>
+            {tx.from}
+          </SLink>
         </Key>
         <Key>
           <KeyName>To: </KeyName>
-          <SLink to={`/addresses/${tx.to}`}>{tx.to}</SLink>
+          <SLink to={`${process.env.PUBLIC_URL}/addresses/${tx.to}`}>
+            {tx.to}
+          </SLink>
         </Key>
       </Fragment>
     )}

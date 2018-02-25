@@ -36,15 +36,15 @@ const SLink = styled(Link)`
 const Transaction = ({ from, to, amount, timestamp, id }) => (
   <Tx>
     <Column>
-      <SLink to={`/addresses/${from}`}>{from}</SLink>
+      <SLink to={`${process.env.PUBLIC_URL}/addresses/${from}`}>{from}</SLink>
     </Column>
     <Column>{amount}</Column>
     <Column>
-      <SLink to={`/addresses/${to}`}>{to}</SLink>
+      <SLink to={`${process.env.PUBLIC_URL}/addresses/${to}`}>{to}</SLink>
     </Column>
     <Column>{makeSexyDate(timestamp)}</Column>
     <Column>
-      <Link to={`/transactions/${id}`}>
+      <Link to={`${process.env.PUBLIC_URL}/transactions/${id}`}>
         {
           //eslint-disable-next-line
         }🔎

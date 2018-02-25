@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { injectGlobal } from "styled-components";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import reset from "styled-reset";
 import typography from "./typography";
 import Header from "Components/Header";
@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     baseStyles();
     return (
-      <BrowserRouter>
+      <HashRouter>
         <AppContainer>
           <Header />
           <Main>
@@ -79,7 +79,7 @@ class App extends Component {
             </Switch>
           </Main>
         </AppContainer>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

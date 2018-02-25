@@ -67,30 +67,39 @@ const Header = props => {
     <HeaderContainer>
       <HeaderWrapper>
         <Title>
-          <TitleLink to="/">Nomadcoin Explorer</TitleLink>
+          <TitleLink to={`${process.env.PUBLIC_URL}/`}>
+            Nomadcoin Explorer
+          </TitleLink>
         </Title>
         <Nav>
           <List>
             <ListItem>
-              <Link to="/">
-                <SLink isActive={window.location.pathname === "/"}>Home</SLink>
+              <Link to={`${process.env.PUBLIC_URL}/`}>
+                <SLink
+                  isActive={
+                    window.location.hash === `${process.env.PUBLIC_URL}#/`
+                  }
+                >
+                  Home
+                </SLink>
               </Link>
             </ListItem>
             <ListItem>
-              <Link to="/blocks">
+              <Link to={`${process.env.PUBLIC_URL}/blocks`}>
                 <SLink
-                  to="/blocks"
-                  isActive={window.location.pathname.startsWith("/blocks")}
+                  isActive={window.location.hash.startsWith(
+                    `${process.env.PUBLIC_URL}#/blocks`
+                  )}
                 >
                   Blocks
                 </SLink>
               </Link>
             </ListItem>
             <ListItem>
-              <Link to="/transactions">
+              <Link to={`${process.env.PUBLIC_URL}/transactions`}>
                 <SLink
-                  isActive={window.location.pathname.startsWith(
-                    "/transactions"
+                  isActive={window.location.hash.startsWith(
+                    `${process.env.PUBLIC_URL}#/transactions`
                   )}
                 >
                   Transactions
