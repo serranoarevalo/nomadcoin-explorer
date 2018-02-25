@@ -114,9 +114,7 @@ const Table = ({
                     return (
                       <TableCell key={index}>
                         <TableLink
-                          to={`${process.env.PUBLIC_URL}/${linkPages[index]}/${
-                            item[linkParams[index]]
-                          }`}
+                          to={`/${linkPages[index]}/${item[linkParams[index]]}`}
                         >
                           {item[key]}
                         </TableLink>
